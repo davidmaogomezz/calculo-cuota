@@ -1,2 +1,6 @@
-<h1>Home#index</h1>
-<p>Find me in app/views/home/index.html.erb</p>
+<%= form_tag(home_index_path) do %>
+  <%= text_field_tag 'amount', '', :placeholder => 'Monto' %></p>
+  <%= text_field_tag 'term', '', :placeholder => 'Número de meses' %></p>
+  <%= text_field_tag 'interest', '', :placeholder => 'Interes mensual' %></p>
+  <div><%= submit_tag 'Calcular' %></div>
+<% end %>
