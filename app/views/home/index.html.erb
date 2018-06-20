@@ -1,6 +1,28 @@
 <%= form_tag(home_index_path) do %>
-  <%= text_field_tag 'amount', '', :placeholder => 'Monto' %></p>
-  <%= text_field_tag 'term', '', :placeholder => 'Número de meses' %></p>
-  <%= text_field_tag 'interest', '', :placeholder => 'Interes mensual' %></p>
+  <%= text_field_tag 'amount', '', :placeholder => 'Monto', :value => '6000' %></p>
+  <%= text_field_tag 'term', '', :placeholder => 'Número de meses', :value => '6' %></p>
+  <%= text_field_tag 'interest', '', :placeholder => 'Interes mensual', :value => '2.5' %></p>
   <div><%= submit_tag 'Calcular' %></div>
 <% end %>
+<% if @quota_development.length > 0%>
+  Pagaras en total <%=@total%>
+  <table>
+    <thead>
+      <% @quota_development.first.keys.each do |key|%>
+        <td>
+          <%= key %>
+        </td>
+      <%end%>
+    </thead>
+    <tbody>
+      <% @quota_development.each do |quota|%>
+        <tr>
+          <% quota.keys.each do |key|%>
+            <td>
+              <%= quota[key]%>
+            </td>
+          <%end%>
+        </tr>
+      <%end%>
+    </tbody>
+<%end%>
